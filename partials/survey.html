@@ -1,0 +1,384 @@
+<div class="fluid-container">  
+  <div class="row">
+     <div class="col-md-4 col-sm-4 col-xs-12"> 
+		 <!--<div class="thumbnail" style="padding:0px;"> <img data-src="holder.js/100%x200" alt="100%x200" src="http://blog.shoutem.com/wp-content/uploads/2014/04/header.png" data-holder-rendered="true" style="height: 200px; width: 100%; display: block;"> <div class="caption" style="margin-bottom:5px; padding:13px;">-->
+			  <div class="thumbnail" style="padding:0px;"> <img data-src="holder.js/100%x200" alt="100%x200" src=" https://d13yacurqjgara.cloudfront.net/users/370472/screenshots/2478104/allow-popup_v2.gif" data-holder-rendered="true" style="height: 293px; width: 100%; display: block;"> <div class="caption" style="margin-bottom:5px; padding:13px;">
+			 
+			
+			 
+			 
+			 <h3>Select type of Notification</h3>
+
+   <div class="form-group" style="height:34px;">
+             <div class="col-md-12" style="padding-left:0px; padding-right:0px;">
+             <select class="form-control" ng-model="myVar" placeholder="Select your option">
+            <option value="dogs">Simple Notification</option>
+		    <option value="tuts">Add Price Notification</option>
+			<option value="cars">Send Graph Notification</option>
+				 
+             </select>
+	   </div>
+         </div>
+		
+			 
+</div>
+</div>
+</div>
+
+    <div class="col-md-8 col-sm-8 col-xs-12">
+      <div class="panel panel-default">
+        <div class="panel-heading clearfix">
+          <i class="icon-calendar"></i>
+          <h3 class="panel-title"> PUSH NOTIFICATIONS PANEL</h3>
+        </div>
+        
+        <div class="panel-body" ng-switch="myVar">
+          <form class="form-horizontal row-border" ng-switch-when="tuts" ng-controller="myCtrl" ng-submit="sendPush(notify,type)" ng-init="type=0">
+<blockquote>
+  <p>Price Addition and changes are more engaging than ever</p>
+  <footer>Someone famous in the art of <cite title="Source Title"> PUSH NOTIFICATIONS</cite></footer>
+</blockquote>
+			  
+		    <div class="form-group">
+              <label class="col-md-2 control-label">Notification Title</label>
+              <div class="col-md-10">
+                <input name="regular" class="form-control" type="text" ng-model="notify.title">
+                <span class="help-block">A Title that says it all at a glance.</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-2 control-label">Notification Message</label>
+              <div class="col-md-10">
+                <input name="regular" class="form-control" type="text" ng-model="notify.message">
+                <span class="help-block">Keep it Short and Sweet . No Long stories</span>
+              </div>
+            </div>
+
+          <!-- <div class="form-group">
+              <label class="col-md-2 control-label">Column sizing</label>
+              <div class="col-md-10">
+                <div class="row">
+                  <div class="col-xs-3">
+                    <input class="form-control" placeholder=".col-xs-3" type="text">
+                  </div>
+                  <div class="col-xs-5">
+                    <input class="form-control" placeholder=".col-xs-5" type="text">
+                  </div>
+                  <div class="col-xs-4">
+                    <input class="form-control" placeholder=".col-xs-4" type="text">
+                  </div>
+                </div>
+              </div>
+            </div>-->
+			  
+			<div class="form-group">
+              <label class="col-md-2 control-label">Send Push To</label>
+              <div class="col-md-10">
+                <div class="row">
+                  <div class="col-xs-3">
+                        <label class="radio-inline">
+            <input name="optionsRadios" id="optionsRadios1" value="all" checked="" type="radio" ng-model="notify.content">All Users
+          </label>
+                  </div>
+                  <div class="col-xs-4">
+					        <label class="radio-inline">
+            <input name="optionsRadios" id="optionsRadios2" value="subscribed" type="radio" ng-model="notify.content">Subscribed Users
+          </label>
+                   
+                  </div>
+					
+		            <br>
+					<br>
+<div class="container-fluid" ng-show="content == 'subscribed'">
+  <div class="row">
+    <div class="col-md-12">
+    	<h4>Choose the item you want to send Push Notification to </h4>
+      	<select class="form-control" id="select2" ng-options="push.product_id as push.name for push in pushes" ng-model="notify.choice">
+        </select>
+    </div> 
+  </div><!--/row-->
+</div>
+					
+                </div>
+              </div>
+            </div> 
+			  <button class="btn btn-mini btn-success pull-right" type="submit" name="supprAlias" value="">
+                <i class="icon-trash icon-white"></i>Send Push
+            </button>
+
+          </form>
+		  
+		  
+		  
+		  
+		  <!-- Second-->
+ <form class="form-horizontal row-border"  ng-switch-when="cars"  ng-submit="sendPush(notify,type)" ng-controller="myCtrl" >
+<blockquote>
+  <p>Send Graph Based Notifications to your users in a few taps. </p>
+  <footer>Someone famous in the art of <cite title="Source Title"> PUSH NOTIFICATIONS</cite></footer>
+</blockquote>
+			  
+		    <div class="form-group">
+              <label class="col-md-2 control-label">Notification Title</label>
+              <div class="col-md-10">
+                <input name="regular" class="form-control" type="text">
+                <span class="help-block">A Title that says it all at a glance.</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-2 control-label">Notification Message</label>
+              <div class="col-md-10">
+                <input name="regular" class="form-control" type="text">
+                <span class="help-block">Keep it Short and Sweet . No Long stories</span>
+              </div>
+            </div>
+			<div class="form-group">
+              <label class="col-md-2 control-label">Send Push To</label>
+              <div class="col-md-10">
+                <div class="row">
+                  <div class="col-xs-3">
+                        <label class="radio-inline">
+            <input name="optionsRadios" id="optionsRadios1" value="all" checked="" type="radio" ng-model="content">All Users
+          </label>
+                  </div>
+                  <div class="col-xs-4">
+					        <label class="radio-inline">
+            <input name="optionsRadios" id="optionsRadios2" value="subscribed" type="radio" ng-model="content">Subscribed Users
+          </label>
+                   
+                  </div>
+						
+		            <br>
+					<br>				
+<div class="container-fluid" ng-show="content == 'subscribed'">
+  <div class="row">
+    <div class="col-md-12">
+    	<h4>Choose the item you want to send Push Notification to </h4>
+      	<select class="form-control" id="select2" ng-options="push.product_id as push.name for push in pushes" ng-model="item-choice">
+        </select>
+    </div> 
+  </div><!--/row-->
+</div>
+					
+                </div>
+              </div>
+            </div> 
+			  <button class="btn btn-mini btn-success pull-right" type="submit" name="supprAlias" value="">
+                <i class="icon-trash icon-white"></i>Send Push
+            </button>
+
+          </form>
+		  
+		  <!-- Third-->
+
+          <form class="form-horizontal row-border"  ng-switch-when="dogs" ng-controller="myCtrl"  ng-submit="sendPush(notify,type)" ng>
+			<blockquote>
+  <p>Push Simple Notifications with ease and comfort. </p>
+  <footer>Someone famous in the art of <cite title="Source Title"> PUSH NOTIFICATIONS</cite></footer>
+</blockquote>
+	    <!--  <div class="form-group">
+              <label class="col-md-2 control-label">Select Item3</label>
+              <div class="col-md-10">
+                 <select class="form-control">
+            <option value="dogs">Tomato</option>
+		    <option value="cats">Watermelon</option>
+			<option value="">Banana</option>
+          </select>
+              </div>
+            </div>-->
+		
+		    <div class="form-group">
+              <label class="col-md-2 control-label">Notification Title</label>
+              <div class="col-md-10">
+                <input name="regular" class="form-control" type="text">
+                <span class="help-block">A Title that says it all at a glance.</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-2 control-label">Notification Message</label>
+              <div class="col-md-10">
+                <input name="regular" class="form-control" type="text">
+                <span class="help-block">Keep it Short and Sweet . No Long stories</span>
+              </div>
+            </div>
+			<div class="form-group">
+              <label class="col-md-2 control-label">Send Push To</label>
+              <div class="col-md-10">
+                <div class="row">
+                  <div class="col-xs-3">
+                        <label class="radio-inline">
+            <input name="optionsRadios" id="optionsRadios1" value="all" checked="" type="radio" ng-model="content">All Users
+          </label>
+                  </div>
+                  <div class="col-xs-4">
+					        <label class="radio-inline">
+            <input name="optionsRadios" id="optionsRadios2" value="subscribed" type="radio" ng-model="content">Subscribed Users
+          </label>
+                   
+                  </div>
+						
+		            <br>
+					<br>				
+<div class="container-fluid" ng-show="content == 'subscribed'">
+  <div class="row">
+    <div class="col-md-12">
+    	<h4>Choose the item you want to send Push Notification to </h4>
+      	<select class="form-control" id="select2" ng-options="push.product_id as push.name for push in pushes" ng-model="choice">
+        </select>
+    </div> 
+  </div><!--/row-->
+</div>
+					
+                </div>
+              </div>
+            </div> 
+			  <button class="btn btn-mini btn-success pull-right" type="submit" name="supprAlias" value="">
+                <i class="icon-trash icon-white"></i>Send Push
+            </button>
+
+          </form>
+			
+			
+			
+		  <!-- Default-->
+
+   <form class="form-horizontal row-border" action="#"  ng-switch-default>
+			  <div class="jumbotron">
+  <div class="container" ng-controller="myCtrl">
+	    </div>
+</div>
+			  <blockquote>
+  <p>WELCOME TO WHITE SHADOW TECHNOLOGIES PVT LTD</p>
+  <footer>Someone famous in the art of <cite title="Source Title"> PUSH NOTIFICATIONS</cite></footer>
+</blockquote>
+
+<!-- <select ng-options="push.product_id as push.name for push in pushes" ng-model="choice"></select>->
+	 <!--  <table>
+      <tr>
+        <th>Name</th>
+        <th>Category Name</th>
+        <th>Unit Name</th>
+      </tr>
+      <tr ng-repeat="push in pushes | orderBy: 'name' ">
+        <td>{{push.name}}</td>
+        <td>{{push.category_name}}</td>
+        <td>{{push.unit_name}}</td>
+      </tr>
+    </table>-->
+
+	<!--		  
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+    	<h4>Choose the item you want to send Push Notification to </h4>
+      	<select class="form-control" id="select2">
+          <option value="1">Cats</option>
+          <option value="2">Dogs</option>
+          <option value="3">Fish</option>
+          <option value="4">Reptiles</option>
+          <option value="5">Equine</option>
+          <option value="6">Aviary</option>
+          <option value="7">Insects</option>
+        </select>
+    </div> 
+  </div>
+</div><!--/row-->
+          </form>	
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- survey detail modal dialog -->
+<div class="modal fade" id="survey" tabindex="-1" role="dialog" aria-labelledby="survey" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Survey Questions</h4>
+            </div>
+            
+            <div class="modal-body">
+                
+                <!-- input box -->
+                <div class="form-group">
+                    <label>Name (Input Box)</label>
+                    <input type="text" class="form-control" name="name" ng-model="formData.name">
+                </div>
+                
+                <!--radio buttons -->
+                <div>
+                    <label>Your Age? (Radio Buttons)</label>
+                    <div class="form-group">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="age" value="30-" ng-model="formData.age">
+                                Less than 30
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="age" value="30+" ng-model="formData.age">
+                                30 and above
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- multiSelect checkboxes -->
+                <label>Favorite Colors (MultiSelect Checkboxes)</label>
+                <div class="form-group">
+                    <label class="checkbox-inline">
+                        <input type="checkbox" name="favoriteColors" ng-model="formData.colors.red"> Red
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" name="favoriteColors" ng-model="formData.colors.blue"> Blue
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" name="favoriteColors" ng-model="formData.colors.green"> Green
+                    </label>
+                </div>                
+                
+                <!-- toggle choice -->
+                <div>
+                    <label>Buy Me Lunch? (Toggle Choice)</label>
+                    <div class="form-group">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary" ng-model="formData.lunch" btn-radio=true>YES</button>
+                            <button type="button" class="btn btn-primary" ng-model="formData.lunch" btn-radio=false>NO</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- star rating -->
+                <div>
+                    <label>
+                        How likely would you be to recommend this application to a friend or colleague? (Star Rating)<br />
+                        <small>(0 is not at all likely, 10 is extremely likely)</small>
+                    </label>
+                    <div class="form-group">
+                        <div star-rating rating-value="formData.rating" max="10" on-rating-selected="updateRating(rating)" readonly="false"></div>
+                    </div>
+                </div>
+                
+                <!-- textarea -->
+                <div>
+                    <label>Comments/Suggestions (Textarea)</label>
+                    <div class="form-group">
+                        <textarea class="form-control" rows="2" ng-model="formData.comment"></textarea>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="addButton"
+                        data-loading-text="Sending..." ng-click="addSurvey()">Send results</button>
+            </div>
+            
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

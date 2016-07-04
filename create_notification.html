@@ -1,0 +1,83 @@
+<html>    
+<head>
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>
+<style> 
+
+</style>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+    toggleFields(); 
+    $("#not_type").change(function () {
+        toggleFields();
+    });
+
+    });
+    function toggleFields() {
+        if ($("#not_type").val() == "simple")
+        { 
+            $("#simple").show();
+            $("#send").show();
+            $("#add_price_or_graph").hide();
+          }
+        else if($("#not_type").val() == "none") {
+             $("#simple").hide();
+             $("#send").hide();
+              $("#add_price_or_graph").hide();}
+              else{
+            $("#send").show();
+                 $("#simple").show();
+              $("#add_price_or_graph").show();
+              }
+    }
+</script>
+</head>
+
+    <body>
+        <div id="container">
+            <div class="head">
+                <h1>Enter Notification details</h1>
+            </div>
+            <div id="content">
+
+                <form method="post" action="{{ url_for('notification_action') }}">
+                  <label for="type"><span>Select the type of Notification: </span></label>
+                  <br>
+                  <select name="type" id="not_type">
+                    <option value="none" selected="selected"></option>
+                    <option value="simple">Simple Notification</option>
+                    <option value="add_price">Add Price Notification</option>
+                    <option value="graph_notification"> Send Graph Notification</option>
+                  </select>
+                  <br><br><br>
+                  <div id="simple">
+                    <label for="title"><span>Enter Notification Title: </span></label>
+                    <input id='notfi_title' name="title" required="required"/>
+                    <br><br><br>
+                    <label for="message"><span>Enter Notification Message: </span></label>
+                    <input id='notfi_message' name="message" />
+                    <br><br><br>
+                  </div>
+
+                  <div id="add_price_or_graph">
+                    <label for="items"><span>Select an Item</span></label>
+                    <select name="items">
+                      <option value="tomato">Tomato</option>
+                      <option value="watermelon">Watermelon</option>
+                    </select>
+                  </div>
+                  <br><br><br>
+                  <div id="send">
+                  <label for="send_to"><span> send notification to </span></label><br>
+                  <input name="send_to" type="radio" value="all_users" checked>All Users<br>
+                  <input name="send_to" type="radio" value="subscribed_user">Subscribed Users<br><br><br>
+                  </div>
+                  
+                  <input id= 'test2' type="submit" />
+                </form>
+            </div>        
+    </body>
+
+</html>
+ 
